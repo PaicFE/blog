@@ -2,7 +2,7 @@
 
 ## Vue的选型
 
-[./img/titl]
+[Vue全家桶](https://raw.githubusercontent.com/PaicFE/keynote/master/img/architech.png)
 
 ### Vue与Angular
 
