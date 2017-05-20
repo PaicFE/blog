@@ -98,7 +98,7 @@ function create_iframe(url){
 <iframe src="./othersite.html" id="other" frameborder="0" scrolling="no" style="border:0px;"></iframe>
 ```
 
-源码参考[brandonxiang/iframe-height](https://github.com/brandonxiang/iframe-height/tree/master/agent)
+源码参考[brandonxiang/iframe-height](https://github.com/brandonxiang/iframe-height/tree/master/agent)。
 
 ## postMessage
 
@@ -127,7 +127,7 @@ window.addEventListener('message', function(e){
 })
 ```
 
-源码参考[brandonxiang/iframe-height](https://github.com/brandonxiang/iframe-height/tree/master/postmessage)
+源码参考[brandonxiang/iframe-height](https://github.com/brandonxiang/iframe-height/tree/master/postmessage)。
 
 ## 总结
 
