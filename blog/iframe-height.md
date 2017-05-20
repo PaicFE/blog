@@ -127,6 +127,8 @@ window.addEventListener('message', function(e){
 })
 ```
 
+源码参考[brandonxiang/iframe-height](https://github.com/brandonxiang/iframe-height/tree/master/postmessage)
+
 ## 总结
 
 相比之下，第二种方法会比较简单，而且有效。但是由于跨域限制，你不得不要求对方添加一段代码去“消除”跨域限制。
