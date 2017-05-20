@@ -1,12 +1,14 @@
 # 【技术分享】Vue的选型和Webpack的入门
 
+撰稿人：项伟平
+
 ## Vue的选型
 
-[Vue全家桶](https://raw.githubusercontent.com/PaicFE/keynote/master/img/architech.png)
+![Vue全家桶](https://raw.githubusercontent.com/PaicFE/keynote/master/img/architech.png)
 
 ### Vue与Angular
 
-一切要从Vue1.0讲起，回顾一下历史。Vue在项目初期命名为Angular Lite，这告诉我们，他和Angular之间的关系，它更多是一个精简版的Angular。它们的共同点在于它们都拥有**双向绑定**机制，指令。
+一切要从Vue1.0讲起，回顾一下历史。Vue在项目初期命名为Angular Lite，这说明了我们Vue1.0和Angular之间的关系，它更多是一个精简版的Angular。它们的共同点在于它们都拥有**双向绑定**机制，指令。
 
 - ng是完整mvvm框架，vue主要是view层
 - 双向绑定基于模版编译规则，“脏”检查

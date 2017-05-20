@@ -4,7 +4,7 @@
 
 ## 引言
 
-iframe是一个“好东西”，但是又会带给你很多头疼的“问题”，特别是在ios的兼容性问题。在ios当中，iframe里的页面不会随着外层的网页大小自适应弹性缩放，相比PC浏览器浏览器和安卓的浏览器则是可以实现缩放。这时候，第一时刻想到的是兼容的写法。专门针对ios专门设置iframe的scrolling属性为“no”，其他浏览器为“yes”，如下方源码。但是如果iframe子页面中存在tab，高度进行变化，则会引起重绘重排，导致页面突然回调到顶部。
+iframe是一个“好东西”，但是又会带给你很多头疼的“问题”，特别是在ios的兼容性问题。在ios当中，iframe里的页面不会随着外层的网页大小自适应弹性缩放。相比之下，PC浏览器浏览器和安卓的浏览器则是可以实现缩放，这导致了差异性。这时候第一时刻，想到的是兼容的写法。专门针对ios专门设置iframe的scrolling属性为“no”，其他浏览器为“yes”，如下方源码。但是如果iframe子页面中存在响应式部件tab，高度进行变化，则会引起重绘重排，导致页面突然跳到顶部。
 
 ```html
 <div id="url-wrapper"></div>
@@ -60,15 +60,16 @@ function create_iframe(url){
 }
 ```
 
-上述的方法能解决部分网站的问题，但是如果是响应网页，一样会出现问题。
+上述的兼容写法能解决部分网站的问题，但是如果是响应式网页，页面跳动的情况还是会出现问题的。
 
-随着技术的发展，iframe一般满足的是跨域的页面。受限于浏览器的同源政策，是没法跨域获取子网页的高度或者跨度。这时候，我们可能考虑将iframe的高和宽定死。跨域交换iframe内外的数据的方法有两种，一种是中间代理页面，一种是h5的API--postMessage。
+随着技术的发展，iframe一般都是萎了满足跨域的页面。受限于浏览器的同源政策，父页面是没法跨域获取子网页的高度或者宽度。这时候，我们可能考虑将iframe的高和宽“定死”。跨域交换iframe内外的数据的方法有以下两种，一种是中间代理页面，一种是h5的API--postMessage。
 
 ## 中间代理页面
 
-参考[iframe高度自适应的6个方法](http://caibaojian.com/iframe-adjust-content-height.html)的最后一种方法，这种方法基于了一个中间代理层。原理很简单，用网页地址的hash值传高度和宽度。假设www.a.com域名下的一个页面a.html要包含www.b.com下的一个页面b.html。这时，我们需要在a域名下添加一个agent.html，代理层代码如下，放置在自己的服务器。
+参考[iframe高度自适应的6个方法](http://caibaojian.com/iframe-adjust-content-height.html)的最后一种方法，这种方法是建立了在两个页面中一个中间代理层。原理很简单，用代理层网页地址的hash值传高度和宽度。假设www.a.com域名下的一个页面a.html要包含www.b.com下的一个页面b.html。这时，我们需要在a域名下添加一个agent.html，代理层的代码如下，放置在自己的服务器。
 
 ```html
+//agent.html
 <script type="text/javascript">
     var other = window.parent.parent.document.getElementById("other");
     var hash_url = window.location.hash;
@@ -81,9 +82,10 @@ function create_iframe(url){
 </script>
 ```
 
-**而它是被iframe目标页面所引用，iframe把高度和宽度值组织好并传递到链接上。由于链接的调用不受跨域的限制，也算是走了个“后门”，把你想要的值“偷偷”传到代理页面上。而代理页面和主页面同源，不构成跨域，所以避免了浏览器的跨域限制。**我们还需要在iframe目标页面添加一段代码，就是把添加一个iframe把数据往链接上拼接。在b.html的尾部加上这段js。
+**而它是被iframe目标页面所引用，iframe把高度和宽度值组织好到代理页面的链接。由于链接的调用不受跨域的限制，也算是走了个“后门”，把你想要的值“偷偷”传到代理页面上。而代理页面和主页面同源，不构成跨域，所以避免了浏览器的跨域限制。**我们还需要在iframe目标页面添加一段代码，就是把添加一个iframe把数据往链接上拼接。在b.html的尾部加上这段js。
 
 ```javascript
+//b.html
 (function autoHeight() {
     var b_width = document.body.clientWidth;
     var b_height = document.body.clientHeight;
@@ -95,6 +97,7 @@ function create_iframe(url){
 而在a.html还是原封不动的那个iframe就可以了。
 
 ```html
+<!--a.html-->
 <iframe src="./othersite.html" id="other" frameborder="0" scrolling="no" style="border:0px;"></iframe>
 ```
 
@@ -102,13 +105,14 @@ function create_iframe(url){
 
 ## postMessage
 
-有些人觉得上面的方法非常难理解，因为中间代理层的缘故，增加了请求量。
+有些人觉得上面的方法非常难理解，因为中间代理层的缘故，增加了请求量，影响了加载效率。
 
 随着HTML5 API的发展，postMessage是不同的html页面之间进行数据通信的方法，大大简化了上述方法的步骤。
 
-在b.html中添加一段代码，在它加载完成后，往父页面跨域发送自己的高和宽。并且可以限制你发送的父网站的ip地址，大大保证安全性。
+在b.html中添加一段代码，在它加载完成后，往父页面跨域发送自己的高和宽，并且可以限制你发送的父网站的ip地址，大大保证安全性。
 
 ```javascript
+//b.html
 document.addEventListener('DOMContentLoaded', function () {
     var tbody = document.body
     var width = tbody.clientWidth
@@ -117,9 +121,10 @@ document.addEventListener('DOMContentLoaded', function () {
 }, false)
 ```
 
-还需要在a.html网站添加一个事件监听，获取iframe内的b.html发送的高与宽。
+还需要在a.html网站添加一个事件监听，获取iframe内的b.html发送的高与宽，从而设置父页面的iframe的高与宽。
 
 ```javascript
+//a.html
 var frame = document.getElementById('other')
 window.addEventListener('message', function(e){
     frame.style.height = e.data.height+'px'
@@ -131,8 +136,8 @@ window.addEventListener('message', function(e){
 
 ## 总结
 
-相比之下，第二种方法会比较简单，而且有效。但是由于跨域限制，你不得不要求对方添加一段代码去“消除”跨域限制。
+相比之下，第二种方法会比较简单和有效。但是由于跨域限制，你不得不要求对方添加一段代码去“消除”跨域限制，也是出于安全性不得已的实现方法。
 
 总的来说，iframe在移动端受非常多的限制，尽可能地慎用。
 
-欢迎订阅我们的博客，点击上方的watch按钮噢。
+欢迎订阅我们的博客，请点击上方的watch按钮噢。
