@@ -6,17 +6,23 @@
 
 ![Vue全家桶](https://raw.githubusercontent.com/PaicFE/keynote/master/img/architech.png)
 
+在纵观几个大型前端框架后，
+
 ### Vue与Angular
 
-一切要从Vue1.0讲起，回顾一下历史。Vue在项目初期命名为Angular Lite，这说明了我们Vue1.0和Angular之间的关系，它更多是一个精简版的Angular。它们的共同点在于它们都拥有**双向绑定**机制，指令。
+一切要从Vue1.0讲起，回顾一下历史。Vue在项目初期命名为Angular Lite，说明了我们Vue1.0和Angular之间的关系，它初始的目标是一个精简版的Angular。它们的共同点在于它们都拥有**双向绑定**机制和指令。Angular（后面简称为ng）和Vue的异同点如下：
 
-- ng是完整mvvm框架，vue主要是view层
-- 双向绑定基于模版编译规则，“脏”检查
+- ng是一个完整的mvvm框架，vue主要是view层展示
+- ng双向绑定基于模版编译规则（“脏”检查), vue是采用es5的get和set机制
 - vue可以el对象进行实例化，组件化
 - ng框架重，整个设计模式具有依赖注入的思想
 - ng2断层式升级
 
+可以说Angular的“大而整”的结构让它在构建项目的过程当中得心应手，但是“小而美”的组件化结构却是符合我轻量级应用项目的需求。说到小而美的“组件化思想”，我们会提到vue和react。
+
 ### Vue与React
+
+可以说vue学习了很多react的特性，但是也算是“js大一统”思想的鼻祖。
 
 - React的es5与es6写法
 - JSX和CSS IN JS的写法
@@ -30,7 +36,7 @@
 - 强调单向数据流，推荐vuex
 - api区别，生命周期调整
 
-##Vue的优势
+## Vue的优势
 
 双向绑定
 Virtual-dom
@@ -66,8 +72,6 @@ Virtual-dom
 ----
 
 ### webpack的入门
-
-----
 
 #### 横向对比
 
@@ -157,11 +161,7 @@ utils.getEntries('./src/module/**/*.js')
 - SSR（server side rendering）
 
 
-----
-
-### 团队GITHUB
-
-[PaicFE](https://github.com/PaicFE)
+欢迎关注团队GITHUB[PaicFE](https://github.com/PaicFE)
 
 
 
