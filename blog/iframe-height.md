@@ -140,4 +140,10 @@ window.addEventListener('message', function(e){
 
 总的来说，iframe在移动端受非常多的限制，尽可能地慎用。
 
+
 欢迎订阅我们的博客，请点击上方的watch按钮噢。
+
+
+## 参考
+[跨域iframe高度自适应的多种方法](http://blog.csdn.net/aaronpan21/article/details/51245685)
+
