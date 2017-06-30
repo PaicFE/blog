@@ -41,6 +41,8 @@ sorry，我才疏学浅没怎么听懂。大概是混合语言的部分更多是
 
 ## PWA和AMP
 
-我认为这是我在TFC的又一大收获。PWA是一个相对成熟的技术，受的更多是因为ios暂不支持的阻碍。我个人认为像react native或者weex等技术
+我认为这是我在TFC的又一大收获。PWA是一个相对成熟的技术，受到的影响更多是因为ios暂不支持的阻碍。我个人认为像react native或者weex等混合语言开发的，需要非常大地学习成本。react到react native的改造不是一两天能完成的，但是PWA的改造是完全可以通过一两个小时完成，只需要你了解servive worker的接口。在如今流行的前端框架中，vue，react和preact都有支持pwa的模版。
+
+- vue
 
 
