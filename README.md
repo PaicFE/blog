@@ -5,3 +5,5 @@ Blog for PAIC FE Team
 - [【技术研究】如何动态获取跨域iframe高度](https://github.com/PaicFE/blog/issues/2) by 项伟平
 - [【技术分享】参加腾讯Web前端大会体验](#) by 项伟平
 - [【技术研究】性能优化之路](#)
+
+zhong jun is a bitch
