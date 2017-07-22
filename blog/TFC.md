@@ -45,4 +45,12 @@ sorry，我才疏学浅没怎么听懂。大概是混合语言的部分更多是
 
 - vue
 
+```bash
+vue init pwa my-project
+```
+
+```bash
+
+```
+
 

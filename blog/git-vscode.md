@@ -1,4 +1,8 @@
+
+
 ## 提交信息
+
+`git commit`提交信息的规范，建议在提交信息头部加上这几个类型。
 
 - 增加功能
 - 更新功能
@@ -7,22 +11,23 @@
 - 合并代码
 - 修复bug
 
-## ITREM + OH MY ZSH
+## ITREM + OH MY ZSH的
 
+#### 安装
 
-via curl
+**via curl**
 
 ```bash
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 ```
 
-via wget
+**via wget**
 
 ```bash
 sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
 ```
 
-## 环境变量的配置
+#### 环境变量的配置
 
 ```bash
 vim ~/.zshrc
