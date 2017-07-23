@@ -55,17 +55,17 @@ Vue2.0的升级可以说是革命性的，如果很多人把Vue1.0当作“玩�
 
 ![Vuex单向数据流](https://raw.githubusercontent.com/PaicFE/keynote/master/img/vuex.png)
 
-单向数据流正如我上述描述的，是出于效率的“推”的“数据流”设计。Mutations是针对state的数据进行修改，state会通过`mapGetters`和`mapStates`影响者Vue组件。在组件内可以通过`mapActions`（或者`mapMutations`）。Actions更多是异步请求操作。所以，整个数据流是一个闭环，相互影响，相互传递。
+单向数据流正如我上述描述的，是出于效率的“推”的“数据流”设计。Mutations是针对state的数据进行修改，state会通过`mapGetters`和`mapStates`影响者Vue组件。在组件内可以通过`mapActions`（或者`mapMutations`）。Actions更多是异步请求操作。所以，整个数据流是一个闭环，相互影响，相互传递。
 
 ![Virtual-dom](https://raw.githubusercontent.com/PaicFE/keynote/master/img/virtual-dom.jpg)
 
-虚拟dom是最近挺火的一个概念，但是不见得一定需要它。Virtual-dom涉及到一个概念，那就是重绘重排。在大量的dom操作的情况下，Virtual-dom才会起到它的价值。它的实现原理便是在dom之间做了一个虚拟层，在状态改变了后，做一次diff，把变化的dom一次性以补丁的方式给dom进行修改，减少了dom的变化。
+虚拟dom是最近挺火的一个概念，但是不见得一定需要它。Virtual-dom涉及到一个概念，那就是重绘重排。在大量的dom操作的情况下，Virtual-dom才会起到它的价值。它的实现原理便是在dom之间做了一个虚拟层，在状态改变了后，做一次diff，把变化的dom一次性以补丁的方式给dom进行修改，减少了dom的变化。
 
 ### webpack的入门
 
 #### 横向对比
 
-作为Vue的好“基友”，[webpack](https://github.com/webpack/webpack)应该是这几年的最重要的打包工具。有别于gulp和grunt这种自动化工具，它更关注于模块化的思想，让js的开发变得更加方便。相较于[browserify](http://browserify.org)，webpack的自由度会更好。相比于[rollup](https://github.com/rollup/rollup)，webapck更适合使用于项目当中。
+作为Vue的好“基友”，[webpack](https://github.com/webpack/webpack)应该是这几年的最重要的打包工具。有别于gulp和grunt这种自动化工具，它更关注于模块化的思想，让js的开发变得更加方便。相较于[browserify](http://browserify.org)，webpack的自由度会更好。相比于[rollup](https://github.com/rollup/rollup)，webapck更适合使用于项目当中。
 
 - ~~gulp~~
 - browserify
@@ -81,11 +81,11 @@ Vue2.0的升级可以说是革命性的，如果很多人把Vue1.0当作“玩�
 - loader
 - plugin
 
-入口是打包的起始位置，分为js和html入口。出口是输出文件内容，可以使用hash命名进行缓存。loader则是抽离各种其他的文件，例如css，图片等等。plugins是更多的批量化操作。
+入口是打包的起始位置，分为js和html入口。出口是输出文件内容，可以使用hash命名进行缓存。loader则是抽离各种其他的文件，例如css，图片等等。plugins是更多的批量化操作。
 
 #### loader
 
-各式各样的loader非常多，这里不一一举例。
+各式各样的loader非常多，这里不一一举例。
 
 - less-loader
 - sass-loader
@@ -95,7 +95,7 @@ Vue2.0的升级可以说是革命性的，如果很多人把Vue1.0当作“玩�
 
 #### plugin
 
-通过plugins对你打包项目内部的文件进行整理。例如js压缩，html压缩，公共包的提取等。
+通过plugins对你打包项目内部的文件进行整理。例如js压缩，html压缩，公共包的提取等。
 
 - UglifyJsPlugin
 - CommonsChunkPlugin
@@ -107,7 +107,7 @@ Vue2.0的升级可以说是革命性的，如果很多人把Vue1.0当作“玩�
 
 #### 多页面打包
 
-官方给出的Vue项目构建模版是单页面项目。但是在国内可能不是所有项目都那么完整的出来所有的需求。这时，我们需要的是多页面的打包情况。我们会考虑在utils里面加一个`getEntries`的函数，这个函数会返回一个对应路径的数组，里面包括所有对应的js文件。
+官方给出的Vue项目构建模版是单页面项目。但是在国内可能不是所有项目都那么完整的出来所有的需求。这时，我们需要的是多页面的打包情况。我们会考虑在utils里面加一个`getEntries`的函数，这个函数会返回一个对应路径的数组，里面包括所有对应的js文件。
 
 ```javascript
 exports.getEntries = function (globPath) {
