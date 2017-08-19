@@ -19,13 +19,15 @@ jsonp是一个很老的技术，为啥现在还在使用？很大一部分原因
 - [vue-resource](https://github.com/vuejs/vue-resource)是支持jsonp
 - [axios](https://github.com/mzabriskie/axios)不支持jsonp
 
-axios因为在node.js端和browser端同时都支持，而且长期支持。vue-resource相对来说，曾经被官方放弃。axios的维护者并不打算支持jsonp，正因为它的安全性隐患。
+axios因为在node.js端和browser端同时都支持，而且长期支持。axios的维护者并不打算支持jsonp，正因为它存在着安全性隐患，如果你希望兼容jsonp的接口，可以使用这个库[webmodules/jsonp](https://github.com/webmodules/jsonp)替代部分的功能。vue-resource相对来说，曾经被官方放弃，从设计方面vue-resource相对来说考虑得比较全面，全面兼容jsonp。
 
 ### jsonp的安全问题
 
-
+从[webmodules/jsonp](https://github.com/webmodules/jsonp)这个库，我们可以看到它的实现方式。jsonp的漏洞在于callback函数，它可以植入脚本影响后端代码。
 
 ## CORS是什么？
+
+CORS即是跨域资源共享（全称为Cross-origin resource sharing）。它的实现需要后端配合，可以针对域名，端口和请求方式等作出限制。这样保证了跨域请求的安全性。阮一峰老师的[跨域资源共享 CORS 详解](http://www.ruanyifeng.com/blog/2016/04/cors.html)很好地介绍了两种
 
 ### CORS的实现原理
 
