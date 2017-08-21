@@ -11,7 +11,7 @@
 - 合并代码
 - 修复bug
 
-## ITREM + OH MY ZSH的
+## ITREM + OH MY ZSH的相关操作
 
 #### 安装
 

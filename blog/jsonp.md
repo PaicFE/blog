@@ -27,9 +27,13 @@ axios因为在node.js端和browser端同时都支持，而且长期支持。axio
 
 ## CORS是什么？
 
-CORS即是跨域资源共享（全称为Cross-origin resource sharing）。它的实现需要后端配合，可以针对域名，端口和请求方式等作出限制。这样保证了跨域请求的安全性。阮一峰老师的[跨域资源共享 CORS 详解](http://www.ruanyifeng.com/blog/2016/04/cors.html)很好地介绍了两种
+CORS即是跨域资源共享（全称为Cross-origin resource sharing）。它的实现需要后端配合，可以针对域名，端口和请求方式等作出限制。这样保证了跨域请求的安全性。阮一峰老师的[跨域资源共享 CORS 详解](http://www.ruanyifeng.com/blog/2016/04/cors.html)详细地介绍了两类请求，简单请求（simple request）和非简单请求（not-so-simple request）。
 
 ### CORS的实现原理
 
-### CORS较jsonp的优点在哪里
+CORS的实现需要浏览器和服务器同时支持，IE浏览器不能低于IE10。所以对于老版本的IE需要jsonp接口的兼容。对于开发者来说，CORS通信与同源的AJAX通信没有差别，代码完全一样，主要是服务器配置的附加头文件。
+
+### CORS比jsonp的优点在哪里
+
+JSONP只支持GET请求，CORS支持所有类型的HTTP请求。CORS在安全性上更有保障。
 
