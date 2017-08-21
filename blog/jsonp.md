@@ -10,6 +10,27 @@
 
 jsonp是一个很老的技术，为啥现在还在使用？很大一部分原因是因为相对来说配置相对简单，后端工程师偷了懒。实现原理用自己的话说就是使用HTML的动态脚本的漏洞。在js端构建一个`<script></script>`，通过一个callback参数构建一种关系，你想得到的参数通过函数回调完成。
 
+为了生动形象地展示一下jsonp的实现，我用koa写一个简单的实现。即是把结果塞到回调函数里面。
+
+```javascript
+const Koa = require('koa');
+const querystring = require('querystring');
+const app = new Koa();
+
+const main = ctx => {
+   var data = {
+    "name": "Monkey"
+    };
+    var qs = querystring.parse(ctx.request.url.split('?')[1]);
+    data = JSON.stringify(data);
+    var callback = qs.callback+'('+data+');';
+    ctx.response.body = callback;
+};
+
+app.use(main);
+app.listen(3000);
+```
+
 ### 不用jquery怎么实现jsonp
 
 [jquery](https://github.com/jquery/jquery)或者[zepto](https://github.com/madrobby/zepto)实现jsonp跨域操作非常简单，在datatype中设置为jsonp即可。但是，如果没有了jquery，怎么去实现jsonp，你可能会选择去创建一个动态脚本。把参数和callback拼在url上。
@@ -35,5 +56,5 @@ CORS的实现需要浏览器和服务器同时支持，IE浏览器不能低于IE
 
 ### CORS比jsonp的优点在哪里
 
-JSONP只支持GET请求，CORS支持所有类型的HTTP请求。CORS在安全性上更有保障。
+JSONP只支持GET请求，CORS支持所有类型的HTTP请求。相比之下，CORS的兼容性稍逊一筹，但是它在安全性上更有保障。
 
