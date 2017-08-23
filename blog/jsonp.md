@@ -58,7 +58,7 @@ CORS即是跨域资源共享（全称为Cross-origin resource sharing）。它�
 
 ### CORS的实现原理
 
-CORS的实现需要浏览器和服务器同时支持，IE浏览器不能低于IE10。所以对于老版本的IE需要jsonp接口的兼容。对于开发者来说，CORS通信与同源的AJAX通信没有差别，代码完全一样，主要是服务器配置的附加头文件。
+CORS的实现需要浏览器和服务器同时支持，IE浏览器不能低于IE10。所以对于老版本的IE需要jsonp接口的兼容。对于开发者来说，CORS通信与同源的AJAX通信没有差别，代码完全一样，主要是服务器配置的附加头文件。
 
 下面是非简单请求CORS在express上的具体实现方式：
 
@@ -81,5 +81,5 @@ app.all('*', function(req, res, next) {
 
 ### CORS比jsonp的优点在哪里
 
-JSONP只支持GET请求，CORS支持所有类型的HTTP请求。相比之下，CORS的兼容性稍逊一筹，但是它在安全性上更有保障，如果是新版接口尽可能使用CORS方式跨域。
+JSONP只支持GET请求，CORS支持所有类型的HTTP请求。相比之下，CORS的兼容性稍逊一筹，但是它在安全性上更有保障，如果是新版接口尽可能使用CORS方式跨域。
 
