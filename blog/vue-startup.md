@@ -136,7 +136,6 @@ utils.getEntries('./src/module/**/*.js')
 - 多个html入口（基于HtmlWebpackPlugin）
 - 单元测试调整
 
-
 ## 未来方向
 
 未来的方向主要专注于性能优化上，主要是对h5页面在移动端的细小性能优化。
