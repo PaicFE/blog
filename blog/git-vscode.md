@@ -53,3 +53,6 @@ alias ngrok='~/software/ngrok'
 },
 "git.confirmSync": false
 ```
+
+参考[【译】让人倾倒的 11 个 npm trick](https://segmentfault.com/a/1190000006804410)
+
