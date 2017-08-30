@@ -31,28 +31,31 @@ gzip_disable "MSIE [1-6]\.";
 
 ```bash
 location ~* ^.+\.(ico|gif|jpg|jpeg|png)$ { 
-        access_log   off; 
-        expires      30d;
+  access_log   off; 
+  expires      30d;
 }
 location ~* ^.+\.(css|js|txt|xml|swf|wav)$ {
-    access_log   off;
-    expires      24h;
+  access_log   off;
+  expires      24h;
 }
 location ~* ^.+\.(html|htm)$ {
-        expires      1h;
+  expires      1h;
 }
 ```
 
 ## 浏览器缓存
 
-浏览器缓存主要是通过html的头文件。
+浏览器缓存是通过html的头文件中的meta。
 
 
 ## 分包
 
 前面说的两部分都可以说是偏后端的活，如果真的从前端方面考虑，我们可能会分包入手。正因为vue的脚手架搭建的项目，webpack的配置当中就包含了压缩js，css和html的压缩。所以，当我们的单页面越做越大的情况下，首要的一步就是分包。
 
-vue官方称gzip压缩后只有20kb，但是你普通的打包方式也有100kb，再加上你自己的逻辑代码，整体包的体积也挺大的。直接影响首屏页面加载的效率。下面介绍一下两种分包的方法
+vue官方称gzip压缩后只有20kb，但是你普通的打包方式也有100kb，再加上你自己的逻辑代码，整体包的体积也挺大的。直接影响首屏页面加载的效率。下面介绍一下两种分包的方法：
+
+- external 把包排除，使用cdn资源
+- dll 打包
 
 #### vue，vuex和vue-router
 
@@ -62,11 +65,19 @@ vue官方称gzip压缩后只有20kb，但是你普通的打包方式也有100kb�
 
 #### DLL打包
 
+参考[PaicFE／vue-multi](https://github.com/PaicFE/vue-multi)中的dll的写法，专门把配置文件写在`webpack.dll.config.js`。
+
 ## 预加载
+
+
 
 ## keep-alive
 
 ## Promise请求
 
+## 避免重绘重排
 
 
+
+
+[使用 webpack 3 构建高性能的应用程序](http://www.css88.com/archives/7661#more-7661)
