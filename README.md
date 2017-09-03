@@ -9,5 +9,5 @@ Blog for PAIC FE Team
 - [【技术分享】参加腾讯Web前端大会体验](https://github.com/PaicFE/blog/blob/master/blog/TFC.md) by 项伟平
 
 
-欢迎点击watch订阅我们博客。
+欢迎点击watch订阅我们博客。
 
