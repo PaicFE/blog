@@ -1,5 +1,7 @@
 # 【技术研究】vue项目的性能优化之路
 
+撰稿人：项伟平
+
 我最近也经常面试外包同事。面试的时候，总会有个问题，“你说一下性能优化的手段”。百分之八十的人都会说，压缩js和css之类的。显然这些都是必须做的，而且已经根本不是主要的性能优化的关键点。如果你只会说这些，只能说明你是个过时的前端工程师。
 
 性能优化过程中，我们需要面对的更多是DMS解析过程，服务器缓存和浏览器缓存机制。
@@ -8,7 +10,7 @@
 
 在所有的web前端项目，静态资源基本都放在cdn上，gzip的压缩是非常必要的，它直接改变了js文件的大小，减少两到三倍。
 
-参考[加速nginx: 开启gzip和缓存](https://www.darrenfang.com/2015/01/setting-up-http-cache-and-gzip-with-nginx/),nginx的gzip配置非常简单，在你对应的域名底下，添加下面的配置，重启服务即可。`gzip_comp_level`的值大于2的时候并不明显，建议设置在1或者2之间。
+参考[加速nginx: 开启gzip和缓存](https://www.darrenfang.com/2015/01/setting-up-http-cache-and-gzip-with-nginx/)，nginx的gzip配置非常简单，在你对应的域名底下，添加下面的配置，重启服务即可。`gzip_comp_level`的值大于2的时候并不明显，建议设置在1或者2之间。
 
 ```bash
 # 开启gzip
@@ -174,7 +176,7 @@ export function getJsonp(urlHost, key, data, _params) {
 }
 ```
 
-Promise的使用需要避免以下的写法，
+Promise的使用需要避免以下的写法，
 
 ```javascript
 promise.then(function(value) {
@@ -196,7 +198,7 @@ promise.then(function(value) {
 })
 ```
 
-并行的操作主要是`Promise.all()`，它可以将Promise操作的数组并行执行完成然后在进行串行的操作。`Promise.race()`则是返回并行请求中最先返回的请求的那个结果。它们的使用可以有效地压缩数据获取的时间。
+并行的操作主要是`Promise.all()`，它可以将Promise操作的数组并行执行完成然后在进行串行的操作。`Promise.race()`则是返回并行请求中最先返回的请求的那个结果。它们的使用可以有效地压缩数据获取的时间。
 
 
 ## 扩展阅读
