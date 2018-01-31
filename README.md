@@ -14,6 +14,7 @@ Blog for PAIC FE Team
 - [Vue的自动化测试](https://github.com/PaicFE/blog/issues/14) by 项伟平
 - [Phantomjs教你如何实现浏览器截图并上传截图文件](https://github.com/PaicFE/blog/issues/15) by 杨凯
 - [多页面打包框架（mpa）](https://github.com/PaicFE/blog/issues/16) by 项伟平
+- [PWA技术分享会](https://github.com/Cainankun/cainankun.github.io/issues/1) by 蔡南坤
 
 
 
