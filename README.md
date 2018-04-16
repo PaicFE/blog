@@ -15,6 +15,7 @@ Blog for PAIC FE Team
 - [Phantomjs教你如何实现浏览器截图并上传截图文件](https://github.com/PaicFE/blog/issues/15) by 杨凯
 - [多页面打包框架（mpa）](https://github.com/PaicFE/blog/issues/16) by 项伟平
 - [PWA技术分享会](https://github.com/Cainankun/cainankun.github.io/issues/1) by 蔡南坤
+- [webpack版本的差异性](https://www.jianshu.com/writer#/notebooks/9046660/notes/22174344) by 项伟平
 
 
 
